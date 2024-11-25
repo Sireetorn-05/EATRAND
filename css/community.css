@@ -1,0 +1,289 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/9560936.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 100px; /* ปรับให้พอที่จะทำให้ส่วนเนื้อหาอยู่ใต้ nav */
+}
+
+.restaurant-list h2{
+    font-size: 6.5rem;
+    font-weight: bold;
+    color: #50311B;
+    text-align: center;
+    margin: 0;
+}
+
+.restaurant-item h3 {
+    font-size: 18px;
+    color: #2f2f2f;
+}
+
+.restaurant-item p {
+    font-size: 16px;
+}
+
+.restaurant-list {
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    min-height: 100vh; /* ให้มีความสูงอย่างน้อยเท่ากับความสูงของหน้าจอ */
+    text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+}
+
+.add-restaurant {
+    display: inline-block;
+    margin: 20px; 
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #ff7800;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.restaurant-card {
+    display: flex;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.restaurant-item {
+    display: flex; /* ใช้ flexbox เพื่อจัดรูปภาพและข้อมูลในแนวนอน */
+    flex-direction: row; /* จัดเรียงแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* กำหนดความกว้างของการ์ดให้ใหญ่ขึ้น */
+    max-width: 800px; /* กำหนดความกว้างสูงสุด */
+    text-align: left; /* จัดข้อความให้อยู่ชิดซ้าย */
+}
+
+.restaurant-list img {
+    max-width: 200px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px; /* เพิ่มระยะห่างระหว่างรูปภาพและข้อมูล */
+}
+
+/* จัดรูปแบบข้อมูลร้านอาหาร */
+.restaurant-info {
+    flex: 1; /* ให้ข้อมูลร้านอาหารขยายเต็มพื้นที่ที่เหลือ */
+}
+
+.restaurant-details {
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+/* สไตล์สำหรับโมเดลบ็อกซ์ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999; /* ตั้งค่า z-index ต่ำกว่าแถบนำทาง */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* ปรับตำแหน่งของ modal-content ให้เลื่อนลงมา */
+.modal-content {
+    background-color: #fefefe;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
+    max-width: 500px; /* จำกัดความกว้างสูงสุดของโมเดลบ็อกซ์ */
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1000; /* ทำให้แน่ใจว่าเนื้อหาของโมเดลบ็อกซ์อยู่ด้านบน */
+    border-radius: 20px;
+    top: 100px; /* ขยับลงมาเพื่อไม่ให้ทับกับ navbar */
+}
+
+.modal-content p {
+    font-size: 20px;
+    color: #5c5c5c;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.success-icon {
+    margin-bottom: 20px;
+}
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.ok-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* สไตล์สำหรับไอคอนติ๊กถูกของ Font Awesome */
+.checkmark {
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.checkmark i {
+    color: white;
+    font-size: 40px;
+}
+
+/* Media Query สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 600px) {
+    .checkmark {
+        width: 60px;
+        height: 60px;
+    }
+
+    .checkmark i {
+        font-size: 30px;
+    }
+}
+
+
+        
+
+/* add_restaurant.php */
+
+/* ตั้งค่าสำหรับ container ให้มีระยะห่างจากด้านบน */
+.container {
+    display: flex;
+    flex-direction: column; /* จัดเนื้อหาในแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    min-height: 100vh; /* ให้คอนเทนเนอร์ครอบคลุมทั้งหน้าจอ */
+    padding-top: 100px; /* เพิ่มระยะห่างจากด้านบน เพื่อไม่ให้ซ้อนทับกับเมนู */
+    font-size: 18px;
+}
+
+.container h2 {
+    font-size: 6.5rem;
+    font-weight: bold;
+    color: #50311B;
+    text-align: center;
+    margin: 0;
+}
+
+/* สไตล์สำหรับ form-header เพื่อจัดตำแหน่งหัวข้อให้อยู่ตรงกลาง */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px; /* ระยะห่างระหว่างหัวข้อกับฟอร์ม */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+form {
+    background-color: #ffffff; /* พื้นหลังของฟอร์ม */
+    padding: 30px; /* ระยะห่างภายในฟอร์ม */
+    border-radius: 10px; /* มุมโค้ง */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เงาของฟอร์ม */
+    width: 100%;
+    max-width: 700px; /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+
+}
+
+/* สไตล์สำหรับ label */
+label {
+    display: block; /* ให้ label เป็นบล็อก */
+    margin-bottom: 5px; /* ระยะห่างด้านล่าง */
+    color: #666666;
+}
+
+/* สไตล์สำหรับ input และ textarea */
+input[type="text"],
+input[type="url"],
+input[type="file"],
+textarea {
+    width: 100%; /* ให้เต็มความกว้างของฟอร์ม */
+    padding: 10px; /* ระยะห่างภายใน */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+    border: 1px solid #cccccc; /* ขอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* สไตล์สำหรับปุ่ม */
+button[type="submit"] {
+    width: 100%; /* ให้เต็มความกว้างของฟอร์ม */
+    padding: 10px;
+    background-color: #f68b1e; /* สีพื้นหลังของปุ่ม */
+    color: white;
+    border: none;
+    border-radius: 10px; /* มุมโค้ง */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* การเปลี่ยนสีเมื่อ hover */
+}
+
+/* เปลี่ยนสีของปุ่มเมื่อ hover */
+button[type="submit"]:hover {
+    background-color: #e57a00;
+}
+
+

@@ -1,0 +1,198 @@
+:root{
+    --white:#FFFFFF;
+    --orange:#ff7800;
+    --brown:#50311B;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border :.2rem solid rgba(0,0,0,.1);
+    --outline:.1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid var(--brown);
+}
+
+.home .content{
+    text-align: center;
+    width:60rem;
+}
+
+.home .content h1{
+    color: var(--brown);
+    font-size: 7rem;
+}
+
+.buttons .btn:hover {
+    background: #cc6600; /* สีที่เปลี่ยนเมื่อวางเมาส์ */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row; /* เปลี่ยนการจัดวางเป็นแนวตั้ง */
+    gap: 1.5rem; /* ระยะห่างระหว่างปุ่ม */
+    align-items: center;
+    justify-content: center; /* จัดปุ่มให้อยู่ตรงกลาง */
+}
+
+.btn{
+    margin-top: 1rem;
+    margin: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: 1rem;
+    border:none;
+    color: var(--white);
+    cursor: pointer;
+    background: var(--orange);
+    max-width: 200px; /* กำหนดความกว้างสูงสุดเพื่อไม่ให้ปุ่มยาวเกินไป */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    width: 100%;
+}
+
+/* สไตล์สำหรับ Modal Box */
+.modal {
+    display: none; /* ซ่อนโดยค่าเริ่มต้น */
+    position: fixed; /* อยู่ในตำแหน่งคงที่ */
+    z-index: 1; /* อยู่ด้านบนสุด */
+    left: 0;
+    top: 0;
+    width: 100%; /* กว้างเต็มจอ */
+    height: 100%; /* สูงเต็มจอ */
+    overflow: auto; /* แสดง scroll ถ้าจำเป็น */
+    background-color: rgba(0, 0, 0, 0.4); /* สีดำพร้อมความโปร่งใส */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% จากด้านบนและตรงกลาง */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 44%; /* สามารถปรับขนาดตามหน้าจอ */
+    max-width: 900px;
+    border-radius: 20px;
+    text-align: center;
+    transform: scale(0); /* เริ่มต้นด้วยขนาด 0 เพื่อซูมเข้า */
+    transition: transform 0.3s ease; /* ใช้เวลา 0.3 วินาทีในการซูม */
+}
+
+/* แสดง modal */
+.modal.show .modal-content {
+    transform: scale(1); /* ซูมเป็นขนาดปกติ */
+}
+
+/* ซ่อน modal */
+.modal.hide .modal-content {
+    transform: scale(0); /* ซูมออกเป็นขนาด 0 */
+}
+
+/* ปุ่มที่จัดเรียงในคอลัมน์สำหรับหน้าจอขนาดเล็ก */
+.modal-content .buttons {
+    display: flex;
+    flex-direction: row; /* เรียงปุ่มแนวนอน */
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    justify-content: center; /* จัดกลางปุ่ม */
+}
+
+.modal-content h2 {
+    font-size: 5rem;
+    color: #50311B;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.modal-content img {
+    width: 130px;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.modal-content p {
+    font-size: 24px;
+    color: black;
+}
+
+.btn-random {
+    background-color: #ff7800; /* สีเขียว */
+}
+
+.btn-nearby {
+    background-color: #28a745; /* สีน้ำเงิน */
+}
+
+.btn-cancel {
+    background-color: #dc3545; /* สีแดง */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* แอนิเมชั่นการโหลด */
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+/* CSS สำหรับการแสดงร้านค้าใกล้เคียง */
+.shop-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.shop-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+.shop-item h4 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    margin: 0;
+    color: #ff7800;
+}
+.shop-item p {
+    margin: 0;
+    font-size: 18px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* การจัดการการแสดงผลบนหน้าจอขนาดเล็ก */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%; /* เพิ่มขนาดของ modal-content บนหน้าจอขนาดเล็ก */
+        margin: 20% auto; /* เพิ่มระยะห่างจากด้านบนและล่าง */
+    }
+
+    /* เปลี่ยนการจัดเรียงปุ่มเป็นคอลัมน์บนหน้าจอขนาดเล็ก */
+    .modal-content .buttons {
+        flex-direction: column; /* เรียงปุ่มเป็นคอลัมน์ */
+        gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    }
+}
